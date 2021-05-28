@@ -16,6 +16,9 @@ fastify.register(fp(require('./plugins/session')));
 fastify.register(fp(require('./plugins/webSocket')));
 fastify.register(fp(require('./plugins/moduleAlias')));
 
+// Routes
+fastify.register(fp(require('./routes')));
+
 const start = async () => {
   try {
     await fastify.listen(process.env.PORT || 3001);
