@@ -1,0 +1,24 @@
+{
+  "name": "messenger-server",
+  "version": "0.1.0",
+  "description": "",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node --require dotenv/config server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ruslan Khuzhin <khuzh.n@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "fastify": "^3.15.1",
+    "fastify-cookie": "^5.3.1",
+    "fastify-mysql": "^2.1.0",
+    "fastify-plugin": "^3.0.0",
+    "fastify-session": "^5.2.1",
+    "fastify-websocket": "^3.2.0",
+    "module-alias": "^2.2.2",
+    "pino-pretty": "^4.8.0"
+  }
+}
