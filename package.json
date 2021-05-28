@@ -20,5 +20,8 @@
     "fastify-websocket": "^3.2.0",
     "module-alias": "^2.2.2",
     "pino-pretty": "^4.8.0"
+  },
+  "devDependencies": {
+    "prettier": "2.3.0"
   }
 }
