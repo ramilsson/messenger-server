@@ -8,7 +8,6 @@ async function loginRoute(fastify) {
     fastify.userService
       .login(request.body)
       .then((user) => {
-        request.session.authenticated = true;
         request.session.user = user;
         reply.send(user);
       })
