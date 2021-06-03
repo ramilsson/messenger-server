@@ -20,6 +20,17 @@ async function loginRoute(fastify) {
   fastify.options('/login', (request, reply) => {
     reply.code(200).send();
   });
+
+  fastify.addHook('onSend', async (request, reply, payload) => {
+    reply.headers({
+      'Access-Control-Allow-Origin': process.env.CLIENT_URL,
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers':
+        'Origin, X-Requested-With, Content-Type, Accept',
+      'Access-Control-Allow-Credentials': 'true',
+      'Content-Type': 'application/json',
+    });
+  });
 }
 
 module.exports = loginRoute;
