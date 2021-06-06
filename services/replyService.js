@@ -43,7 +43,7 @@ class ReplyService {
   getReplies = async (chatId) => {
     try {
       const connection = await this.mysql.getConnection();
-      const [replies] = await connection.query(getRepliesQuery, [chatId]);
+      const [replies] = await connection.execute(getRepliesQuery, [chatId]);
       connection.release();
       return replies;
     } catch (error) {
@@ -58,13 +58,13 @@ class ReplyService {
     const { text, authorId, roomId } = reply;
     try {
       const connection = await this.mysql.getConnection();
-      const [query] = await connection.query(createReplyQuery, [
+      const [query] = await connection.execute(createReplyQuery, [
         text,
         authorId,
         roomId,
       ]);
       const insertId = query.insertId;
-      const [replies] = await connection.query(getReplyQuery, [insertId]);
+      const [replies] = await connection.execute(getReplyQuery, [insertId]);
       const insertedReply = replies[0];
       connection.release();
       return insertedReply;
@@ -79,7 +79,7 @@ class ReplyService {
   getReply = async (id) => {
     try {
       const connection = await this.mysql.getConnection();
-      const [replies] = await connection.query(getReplyQuery, [id]);
+      const [replies] = await connection.execute(getReplyQuery, [id]);
       connection.release();
       return replies[0];
     } catch (error) {

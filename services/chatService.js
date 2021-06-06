@@ -24,7 +24,7 @@ class ChatService {
   getChat = async (id) => {
     try {
       const connection = await this.mysql.getConnection();
-      const [chats] = await connection.query(getChatQuery, [id]);
+      const [chats] = await connection.execute(getChatQuery, [id]);
       connection.release();
       return chats[0];
     } catch (error) {

@@ -18,7 +18,7 @@ class UserService {
     const { login, password } = user;
     try {
       const connection = await this.mysql.getConnection();
-      const [rows] = await connection.query(loginQuery, [login, password]);
+      const [rows] = await connection.execute(loginQuery, [login, password]);
       if (!rows || !rows[0]) {
         await Promise.reject({
           code: 400,
