@@ -7,9 +7,9 @@ class SocketService {
     this.clients.push({ socketKey, socket, user, chatId });
   };
 
-  removeClient = (key) => {
+  removeClient = (socketKey) => {
     this.clients = this.clients.filter(
-      (socketClient) => socketClient.key !== key
+      (client) => client.socketKey !== socketKey
     );
   };
   y;
